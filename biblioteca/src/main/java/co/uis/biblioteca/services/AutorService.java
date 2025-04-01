@@ -1,7 +1,7 @@
 package co.uis.biblioteca.services;
 
 import co.uis.biblioteca.dtos.AutorDTO;
-import co.uis.biblioteca.entities.Autor;
+import co.uis.biblioteca.entities.AutorEntity;
 import co.uis.biblioteca.mappers.AutorMapper;
 import co.uis.biblioteca.repositories.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class AutorService {
         return a;
     }
 
-    public Autor save(Autor autor) {
+    public AutorEntity save(AutorEntity autor) {
         return autorRepository.save(autor);
     }
 }

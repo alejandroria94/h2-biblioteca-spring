@@ -1,7 +1,7 @@
 package co.uis.biblioteca.controllers;
 
 import co.uis.biblioteca.dtos.AutorDTO;
-import co.uis.biblioteca.entities.Autor;
+import co.uis.biblioteca.entities.AutorEntity;
 import co.uis.biblioteca.services.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ public class AutorController {
     }
 
     @PostMapping
-    public Autor save(@RequestBody Autor autor) {
+    public AutorEntity save(@RequestBody AutorEntity autor) {
         return autorService.save(autor);
     }
 }

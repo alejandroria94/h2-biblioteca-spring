@@ -1,14 +1,13 @@
 package co.uis.biblioteca.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.util.List;
 
 @Entity
 @Table(name = "autores")
 
-public class Autor {
+public class AutorEntity {
     @Id
     @Column(name = "codigo", nullable = false, unique = true, length = 100)
     private String codigo;

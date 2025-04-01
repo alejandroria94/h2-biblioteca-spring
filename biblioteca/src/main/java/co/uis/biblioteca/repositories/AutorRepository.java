@@ -1,7 +1,7 @@
 package co.uis.biblioteca.repositories;
 
-import co.uis.biblioteca.entities.Autor;
+import co.uis.biblioteca.entities.AutorEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AutorRepository extends JpaRepository<Autor, String> {
+public interface AutorRepository extends JpaRepository<AutorEntity, String> {
 }

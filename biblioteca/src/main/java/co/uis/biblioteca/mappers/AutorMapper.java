@@ -1,12 +1,12 @@
 package co.uis.biblioteca.mappers;
 
 import co.uis.biblioteca.dtos.AutorDTO;
-import co.uis.biblioteca.entities.Autor;
+import co.uis.biblioteca.entities.AutorEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AutorMapper {
-    public AutorDTO toDTO(Autor autor) {
+    public AutorDTO toDTO(AutorEntity autor) {
         AutorDTO dto = new AutorDTO();
         dto.setCodigo(autor.getCodigo());
         dto.setNombre(autor.getNombre());
@@ -15,8 +15,8 @@ public class AutorMapper {
         return dto;
     }
 
-    public Autor toEntity(AutorDTO dto) {
-        Autor autor = new Autor();
+    public AutorEntity toEntity(AutorDTO dto) {
+        AutorEntity autor = new AutorEntity();
         autor.setCodigo(dto.getCodigo());
         autor.setNombre(dto.getNombre());
         autor.setNacionalidad(dto.getNacionalidad());
