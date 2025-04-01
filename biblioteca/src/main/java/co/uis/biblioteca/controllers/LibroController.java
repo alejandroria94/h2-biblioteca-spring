@@ -33,7 +33,7 @@ public class LibroController {
     }
 
     @PutMapping("/{isbn}")
-    LibroEntity replaceEmployee(@RequestBody LibroEntity libro, @PathVariable String isbn) {
+    LibroEntity actualizarLibro(@RequestBody LibroEntity libro, @PathVariable String isbn) {
         return libroService.actualizarLibro(libro,isbn);
     }
 
