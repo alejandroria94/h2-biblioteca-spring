@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b941b8fe-0d6e-425d-af23-6faa83d5a43d",
+		"_postman_id": "bb648a34-9e10-4a73-95a9-9c63e2a3af71",
 		"name": "Ejemplos Spring",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "26510571"
@@ -105,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"isbn\": \"isbn\",\r\n    \"nombre\": \"02/04/2024\",\r\n    \"numeroDePaginas\": true,\r\n    \"annio\":2010,\r\n    \"codigoAutor\":\"A003\",\r\n    \"idCategoria\":2\r\n\r\n}",
+					"raw": "{\r\n    \"isbn\": \"Is-0001\",\r\n    \"nombre\": \"La pata sola\",\r\n    \"numeroDePaginas\": 100,\r\n    \"annio\":2010,\r\n    \"codigoAutor\":\"A003\",\r\n    \"idCategoria\":2\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,6 +121,35 @@
 					"port": "8080",
 					"path": [
 						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar libro",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"isbn\": \"999-0-999-9999-9\",\r\n    \"nombre\": \"La pata sola\",\r\n    \"numeroDePaginas\": 200,\r\n    \"annio\":2011,\r\n    \"codigoAutor\":\"A001\",\r\n    \"idCategoria\":1\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/libros/999-0-999-9999-9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"999-0-999-9999-9"
 					]
 				}
 			},

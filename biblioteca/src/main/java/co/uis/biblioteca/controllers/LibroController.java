@@ -31,4 +31,10 @@ public class LibroController {
     public void deleteById(@PathVariable String isbn) {
         libroService.deleteById(isbn);
     }
+
+    @PutMapping("/{isbn}")
+    LibroEntity replaceEmployee(@RequestBody LibroEntity libro, @PathVariable String isbn) {
+        return libroService.actualizarLibro(libro,isbn);
+    }
+
 }

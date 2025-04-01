@@ -27,4 +27,17 @@ public class LibroService {
     public void deleteById(String isbn) {
         libroRepository.deleteById(isbn);
     }
+
+    public LibroEntity actualizarLibro(LibroEntity libroNuevo, String isbn) {
+       return libroRepository.findById(isbn)
+                .map(l -> {
+                    l.setIsbn(l.getIsbn());
+                    l.setNombre(libroNuevo.getNombre());
+                    l.setAnnio(libroNuevo.getAnnio());
+                    l.setNumeroDePaginas(libroNuevo.getNumeroDePaginas());
+                    l.setCodigoAutor(libroNuevo.getCodigoAutor());
+                    l.setIdCategoria(libroNuevo.getIdCategoria());
+                    return libroRepository.save(l);
+                }).orElseGet(() -> libroRepository.save(libroNuevo));
+    }
 }
