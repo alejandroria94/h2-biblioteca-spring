@@ -5,6 +5,7 @@ import co.uis.biblioteca.services.LibroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/libros")
@@ -20,5 +21,14 @@ public class LibroController {
     @PostMapping
     public LibroEntity save(@RequestBody LibroEntity libro) {
         return libroService.save(libro);
+    }
+
+    @GetMapping("/{isbn}")
+    public Optional<LibroEntity> findById(@PathVariable String isbn) {
+        return libroService.findById(isbn);
+    }
+    @DeleteMapping("/{isbn}")
+    public void deleteById(@PathVariable String isbn) {
+        libroService.deleteById(isbn);
     }
 }

@@ -7,6 +7,7 @@ import co.uis.biblioteca.repositories.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,5 +26,14 @@ public class AutorService {
 
     public AutorEntity save(AutorEntity autor) {
         return autorRepository.save(autor);
+    }
+
+
+    public Optional<AutorEntity> findById(String codigo) {
+        return autorRepository.findById(codigo);
+    }
+
+    public void deleteById(String codigo) {
+        autorRepository.deleteById(codigo);
     }
 }
