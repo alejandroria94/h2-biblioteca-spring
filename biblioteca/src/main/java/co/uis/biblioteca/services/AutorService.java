@@ -17,12 +17,17 @@ public class AutorService {
     @Autowired
     private AutorMapper autorMapper;
 
-    public List<AutorDTO> findAll() {
+    public List<AutorEntity> findAll() {      
+        return autorRepository.findAll();
+    }
+    
+    public List<AutorDTO> findAllDto() {
         var a= autorRepository.findAll().stream()
                 .map(autorMapper::toDTO)
                 .collect(Collectors.toList());
         return a;
     }
+
 
     public AutorEntity save(AutorEntity autor) {
         return autorRepository.save(autor);

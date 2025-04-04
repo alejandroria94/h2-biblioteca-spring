@@ -11,7 +11,7 @@ public class AutorMapper {
         dto.setCodigo(autor.getCodigo());
         dto.setNombre(autor.getNombre());
         dto.setNacionalidad(autor.getNacionalidad());
-        dto.setLibros(autor.getLibros());
+       // dto.setLibros(autor.getLibros());
         return dto;
     }
 

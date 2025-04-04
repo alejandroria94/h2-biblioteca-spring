@@ -2,6 +2,7 @@ package co.uis.biblioteca.controllers;
 
 import co.uis.biblioteca.dtos.AutorDTO;
 import co.uis.biblioteca.entities.AutorEntity;
+import co.uis.biblioteca.entities.LibroEntity;
 import co.uis.biblioteca.services.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,14 @@ public class AutorController {
     private AutorService autorService;
 
     @GetMapping
-    public List<AutorDTO> findAll() {
+    public List<AutorEntity> findAll() {
         var a=autorService.findAll();
+        return a;
+    }
+    
+     @GetMapping("/dto")
+    public List<AutorDTO> findAllDto() {
+        var a=autorService.findAllDto();
         return a;
     }
 
