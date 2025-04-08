@@ -1,6 +1,7 @@
 package co.uis.biblioteca.dtos;
 
 import co.uis.biblioteca.entities.LibroEntity;
+import co.uis.biblioteca.entities.NacionalidadEntity;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
 public class AutorDTO {
     private String codigo;
     private String nombre;
-    private String nacionalidad;
+    private NacionalidadEntity nacionalidad;
     //private List<LibroEntity> libros;
 
     public String getCodigo() {
@@ -27,11 +28,11 @@ public class AutorDTO {
         this.nombre = nombre;
     }
 
-    public String getNacionalidad() {
+    public NacionalidadEntity getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(String nacionalidad) {
+    public void setNacionalidad(NacionalidadEntity nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 

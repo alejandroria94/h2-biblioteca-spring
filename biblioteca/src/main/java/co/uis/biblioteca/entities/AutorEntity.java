@@ -12,32 +12,24 @@ import java.util.List;
 public class AutorEntity {
     @Id
     @Column(name = "codigo", nullable = false, unique = true, length = 100)
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "El codigo no puede estar vacio")
+    @NotNull(message = "El nombre es obligatorio")
     private String codigo;
 
     @Column(name = "nombre", length = 100)
-    @NotEmpty
-    @NotNull
+    @NotEmpty(message = "El nombre no puede estar vacio")
+    @NotNull(message = "El nombre es obligatorio")
     private String nombre;
 
-    @Column(name = "nacionalidad", length = 100)
-    @NotEmpty
-    @NotNull
-    private String nacionalidad;
+    @ManyToOne
+    @JoinColumn(name = "nacionalidad_id", nullable = false)
+    private NacionalidadEntity nacionalidad;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "codigo_autor")
     private List<LibroEntity> libros;
 
-    public AutorEntity() {
 
-    }
-    public AutorEntity(String codigo, String nombre, String nacionalidad) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.nacionalidad = nacionalidad;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -55,11 +47,11 @@ public class AutorEntity {
         this.nombre = nombre;
     }
 
-    public String getNacionalidad() {
+    public NacionalidadEntity getNacionalidad() {
         return nacionalidad;
     }
 
-    public void setNacionalidad(String nacionalidad) {
+    public void setNacionalidad(NacionalidadEntity nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
 

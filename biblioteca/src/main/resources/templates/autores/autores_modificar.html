@@ -8,10 +8,9 @@
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-<h1>Datos del Autor</h1>
+
 <div class="container">
-    <a th:href="@{/}" class="btn btn-info">Regresar</a>
-    <br/>
+    <h1>Datos del Autor</h1>
     <form th:action="@{/guardar}" method="post" th:object="${autor}">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre:</label>
@@ -27,11 +26,12 @@
         </div>
         <div class="mb-3">
             <label for="nacionalidad">Nacionalidad:</label>
-            <input id="nacionalidad" class="form-control form-control-sm" type="text" placeholder="nacionalidad"
-                   th:field="*{nacionalidad}">
-            <span th:if="${#fields.hasErrors('nacionalidad')}" th:errors="*{nacionalidad}">Error de nombre</span>
+            <select id="nacionalidad" name="nacionalidad" th:field="*{nacionalidad}" class="form-control form-control-sm">
+                <option th:each="nacionalidad : ${nacionalidades}" th:value="${nacionalidad.id}" th:text="${nacionalidad.nombre}"></option>
+            </select>
         </div>
         <button type="submit" class="btn btn-success">Guardar</button>
+        <a th:href="@{/}" class="btn btn-info">Regresar</a>
     </form>
 </div>
 </body>

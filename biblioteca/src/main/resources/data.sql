@@ -1,8 +1,16 @@
+
+-- Insertar datos en la tabla nacionalidades
+INSERT INTO nacionalidad (nombre) VALUES ('Colombiana');
+INSERT INTO nacionalidad (nombre) VALUES ('Argentina');
+INSERT INTO nacionalidad (nombre) VALUES ('Mexicana');
+INSERT INTO nacionalidad (nombre) VALUES ('Peruana');
+INSERT INTO nacionalidad (nombre) VALUES ('Chilena');
+
 -- Insertar datos en la tabla autores
-INSERT INTO autores (codigo, nombre, nacionalidad) VALUES
-('A001', 'Gabriel García Márquez', 'Colombiana'),
-('A002', 'Isabel Allende', 'Chilena'),
-('A003', 'Mario Vargas Llosa', 'Peruana');
+INSERT INTO autores (codigo, nombre, nacionalidad_id) VALUES
+('A001', 'Gabriel García Márquez', 1),
+('A002', 'Isabel Allende', 5),
+('A003', 'Mario Vargas Llosa', 4);
 -- Insertar datos en la tabla categorias
 INSERT INTO categorias (nombre, descripcion) VALUES
 ('Novela', 'Libros de ficción que narran una historia imaginaria.'),
@@ -16,3 +24,6 @@ INSERT INTO libros (isbn, nombre, numero_de_paginas, annio, codigo_autor, id_cat
 ('978-0-06-092721-9', 'Paula', 330, 1994, 'A002', 1),
 ('978-0-14-026956-3', 'La Ciudad y los Perros', 409, 1963, 'A003', 1),
 ('978-0-312-42215-1', 'La Fiesta del Chivo', 404, 2000, 'A003', 1);
+
+
+

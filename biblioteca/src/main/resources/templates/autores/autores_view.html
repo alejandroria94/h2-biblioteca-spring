@@ -11,6 +11,8 @@
 <body>
 <div class="container">
     <div th:if="${autores!=null and !autores.empty}">
+        <h1>Lista de autores </h1>
+
         <table class="table">
             <tr>
                 <th>Codigo</th>
@@ -22,9 +24,10 @@
             <tr th:each="autor:${autores}">
                 <td th:text="${autor.codigo}"></td>
                 <td th:text="${autor.nombre}"></td>
-                <td th:text="${autor.nacionalidad}"></td>
-                <td><a th:href="@{/editar/}+${autor.codigo}" th:text="Editar" class="btn btn-info"></a>  </td>
-                <td><a th:href="@{/eliminar(codigo=${autor.codigo})}" th:text="Eliminar" class="btn btn-danger"></a> </td>
+                <td th:text="${autor.nacionalidad.nombre}"></td>
+                <td><a th:href="@{/editar/}+${autor.codigo}" th:text="Editar" class="btn btn-info"></a></td>
+                <td><a th:href="@{/eliminar(codigo=${autor.codigo})}" th:text="Eliminar" class="btn btn-danger"></a>
+                </td>
             </tr>
         </table>
     </div>
