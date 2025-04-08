@@ -1,4 +1,4 @@
-package co.uis.biblioteca.controllers;
+package co.uis.biblioteca.rest.controllers;
 
 import co.uis.biblioteca.dtos.AutorDTO;
 import co.uis.biblioteca.entities.AutorEntity;

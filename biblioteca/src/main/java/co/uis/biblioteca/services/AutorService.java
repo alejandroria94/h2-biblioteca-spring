@@ -6,6 +6,8 @@ import co.uis.biblioteca.mappers.AutorMapper;
 import co.uis.biblioteca.repositories.AutorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,9 +32,9 @@ public class AutorService {
 
 
     public AutorEntity save(AutorEntity autor) {
+
         return autorRepository.save(autor);
     }
-
 
     public Optional<AutorEntity> findById(String codigo) {
         return autorRepository.findById(codigo);
@@ -40,5 +42,10 @@ public class AutorService {
 
     public void deleteById(String codigo) {
         autorRepository.deleteById(codigo);
+    }
+
+    @Transactional(readOnly = true)
+    public AutorEntity encontrarAutor(AutorEntity autor) {
+        return autorRepository.findById(autor.getCodigo()).orElse(null);
     }
 }

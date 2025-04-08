@@ -1,6 +1,8 @@
 package co.uis.biblioteca.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,17 +12,32 @@ import java.util.List;
 public class AutorEntity {
     @Id
     @Column(name = "codigo", nullable = false, unique = true, length = 100)
+    @NotEmpty
+    @NotNull
     private String codigo;
 
     @Column(name = "nombre", length = 100)
+    @NotEmpty
+    @NotNull
     private String nombre;
 
     @Column(name = "nacionalidad", length = 100)
+    @NotEmpty
+    @NotNull
     private String nacionalidad;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "codigo_autor")
     private List<LibroEntity> libros;
+
+    public AutorEntity() {
+
+    }
+    public AutorEntity(String codigo, String nombre, String nacionalidad) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.nacionalidad = nacionalidad;
+    }
 
     public String getCodigo() {
         return codigo;
