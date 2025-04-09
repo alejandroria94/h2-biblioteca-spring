@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml" lang="es">
+      xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Autores</title>
     <meta charset="UTF-8">
@@ -11,30 +11,34 @@
 <body>
 <div class="container">
     <div th:if="${autores!=null and !autores.empty}">
-        <h1>Lista de autores </h1>
+        <h1 th:text=#{vista.autores.titulo}>Lista de autores </h1>
 
         <table class="table">
             <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Nacionalidad</th>
-                <th>Editar</th>
-                <th>Eliminar</th>
+                <th th:text=#{autor.codigo}>Codigo</th>
+                <th th:text=#{autor.nombre}>Nombre</th>
+                <th th:text=#{autor.nacionalidad}>Nacionalidad</th>
+                <th th:text=#{accion.editar}>Editar</th>
+                <th th:text=#{accion.eliminar}>Eliminar</th>
             </tr>
             <tr th:each="autor:${autores}">
                 <td th:text="${autor.codigo}"></td>
                 <td th:text="${autor.nombre}"></td>
                 <td th:text="${autor.nacionalidad.nombre}"></td>
-                <td><a th:href="@{/editar/}+${autor.codigo}" th:text="Editar" class="btn btn-info"></a></td>
-                <td><a th:href="@{/eliminar(codigo=${autor.codigo})}" th:text="Eliminar" class="btn btn-danger"></a>
+                <td><a th:href="@{/editar/}+${autor.codigo}" th:text="#{accion.editar}" class="btn btn-info"></a></td>
+                <td><a th:href="@{/eliminar(codigo=${autor.codigo})}" th:text="#{accion.eliminar}" class="btn btn-danger"></a>
                 </td>
             </tr>
         </table>
     </div>
     <div th:if="${autores==null or autores.empty}">
-        <h1>La lista de autores esta vacia!</h1>
+        <h1>[[#{autor.lista-vacia}]]</h1>
     </div>
-    <a th:href="@{/agregar}" class="btn btn-primary">Crear Autor</a>
+    <a th:href="@{/agregar}" class="btn btn-primary">[[#{accion.crear}]]</a>
+    <div>
+        <a th:href="@{/(lang=es)}">ES</a>
+        <a th:href="@{/(lang=en)}">EN</a>
+    </div>
 </div>
 </body>
 </html>
