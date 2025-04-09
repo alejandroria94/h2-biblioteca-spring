@@ -13,7 +13,7 @@ public class AutorEntity {
     @Id
     @Column(name = "codigo", nullable = false, unique = true, length = 100)
     @NotEmpty(message = "El codigo no puede estar vacio")
-    @NotNull(message = "El nombre es obligatorio")
+    @NotNull(message = "El codigo es obligatorio")
     private String codigo;
 
     @Column(name = "nombre", length = 100)
